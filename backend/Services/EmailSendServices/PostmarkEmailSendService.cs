@@ -39,7 +39,7 @@ public class PostmarkEmailSendService : IEmailSendService
 
         PostmarkResponse?
             response = await client.SendMessageAsync(message);
-          return response.Status == PostmarkStatus.Success;
+        return response.Status == PostmarkStatus.Success;
     }
 
     public async Task<bool> SendPasswordResetEmailAsync(string toEmail,

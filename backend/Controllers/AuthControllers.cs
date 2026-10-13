@@ -22,9 +22,9 @@ public class AuthController : ControllerBase
         _context = context;
         _emailSendService = emailSendService;
     }
-        [HttpPost("forgot-password")]
+    [HttpPost("forgot-password")]
     public async Task<IActionResult> ForgotPassword(
-        [FromBody] ForgotPasswordRequest request)
+    [FromBody] ForgotPasswordRequest request)
     {
         const string responseMessage =
             "If an eligible account exists, a password reset link will be sent.";
@@ -76,9 +76,9 @@ public class AuthController : ControllerBase
         return Ok(new { message = responseMessage });
     }
 
-        [HttpPost("reset-password")]
+    [HttpPost("reset-password")]
     public async Task<IActionResult> ResetPassword(
-        [FromBody] ResetPasswordRequest request)
+    [FromBody] ResetPasswordRequest request)
     {
         string tokenHash = Convert.ToHexString(
             SHA256.HashData(Encoding.UTF8.GetBytes(request.token)));
