@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { useRouter } from "next/navigation";
@@ -191,14 +192,22 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <Button 
-              type="submit" 
+            <div className="text-right">
+              <Link
+                href="/forgot-password"
+                className="text-sm text-orange-500 hover:text-orange-400 hover:underline"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+
+            <Button
+              type="submit"
               className="w-full bg-orange-500 text-white py-3 rounded-md cursor-pointer hover:bg-orange-400 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
             >
               {isLoading ? "Logging in..." : "Login"}
             </Button>
-            
 
           </form>
         </Card>
