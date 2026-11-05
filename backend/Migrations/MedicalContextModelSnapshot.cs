@@ -1256,6 +1256,25 @@ namespace MedicalDemo.Migrations
 
                     b.Navigation("SwapRequests");
                 });
+            
+            // modelBuilder.Entity("MedicalDemo.Models.Entities.Restraints", b =>
+            //     {
+            //         b.Property<byte[]>("RestraintId")
+            //             .HasColumnName("restraint_id")
+            //             .HasColumnType("binary(16)");
+
+            //         b.Property<string>("ResidentId")
+            //             .HasColumnName("resident_id")
+            //             .HasColumnType("varchar(15)");
+                    
+            //         b.Property<Verbs>("Verb")
+            //             .HasColumnName("verb")
+            //             .HasColumnType("int");
+
+            //         b.Property<byte[]>("RotationTypeId")
+            //             .HasColumnName("rotation_type_id")
+            //             .HasColumnType("binary(16)");
+            //     });
 #pragma warning restore 612, 618
         }
     }

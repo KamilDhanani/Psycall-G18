@@ -31,6 +31,7 @@ namespace MedicalDemo.Models.Entities
         public virtual DbSet<Pgy4RotationSchedule> Pgy4RotationSchedules { get; set; } = null!;
         public virtual DbSet<RotationPrefSubmissionWindow> RotationPrefRequestSubmissionWindows { get; set; } = null!;
         public virtual DbSet<Pgy4RotationScheduleOverride> Pgy4RotationScheduleOverrides { get; set; } = null!;
+        public virtual DbSet<Restraints> Restraints { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -625,6 +626,26 @@ namespace MedicalDemo.Models.Entities
 
                 entity.Property(v => v.AdditionalNotes)
                     .HasMaxLength(255);
+            });
+
+            modelBuilder.Entity<Restraints>(entity =>
+            {
+                entity.ToTable("restraints");
+
+                entity.Property(e => e.RestraintId)
+                    .HasColumnName("restraint_id")
+                    .HasColumnType("binary(16)");
+                
+                entity.Property(e => e.ResidentId)
+                    .HasColumnName("resident_id");
+                
+                entity.Property(e => e.Verb)
+                    .HasColumnName("verb")
+                    .HasColumnType("int");
+                
+                entity.Property(e => e.RotationTypeId)
+                    .HasColumnName("rotation_type_id")
+                    .HasColumnType("binary(16)");
             });
 
             OnModelCreatingPartial(modelBuilder);
